@@ -41,7 +41,7 @@ const PlayersPage = () => {
 
     const fetchPlayers = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/players`);
+            const response = await axios.get(`http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/players`);
             setPlayers(response.data);
             setLoading(false);
         } catch (err) {
@@ -52,7 +52,7 @@ const PlayersPage = () => {
 
     const fetchTeams = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/teams`);
+            const response = await axios.get(`http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/teams`);
             setTeams(response.data);
         } catch (err) {
             setError("Failed to fetch teams");
@@ -86,12 +86,12 @@ const PlayersPage = () => {
         try {
             if (isEditing) {
                 await axios.put(
-                    `http://localhost:8080/api/players/${currentPlayer.id}`,
+                    `http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/players/${currentPlayer.id}`,
                     playerToSave
                 );
                 setSuccessMessage("Player updated successfully!");
             } else {
-                await axios.post(`http://localhost:8080/api/players`, playerToSave);
+                await axios.post(`http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/players`, playerToSave);
                 setSuccessMessage("Player added successfully!");
             }
             fetchPlayers();
@@ -103,7 +103,7 @@ const PlayersPage = () => {
 
     const handleDeletePlayer = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/players/${id}`);
+            await axios.delete(`http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/players/${id}`);
             setSuccessMessage("Player deleted successfully!");
             fetchPlayers();
         } catch (err) {
