@@ -37,7 +37,7 @@ const MatchesPage = () => {
 
   const fetchMatches = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/matches");
+      const response = await axios.get("http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/matches");
       setMatches(response.data);
     } catch (error) {
       console.error("Error fetching matches:", error);
@@ -46,7 +46,7 @@ const MatchesPage = () => {
 
   const fetchTeams = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/teams");
+      const response = await axios.get("http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/teams");
       setTeams(response.data);
     } catch (error) {
       console.error("Error fetching teams:", error);
@@ -55,7 +55,7 @@ const MatchesPage = () => {
 
   const fetchPlayers = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/players");
+      const response = await axios.get("http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/players");
       setPlayers(response.data);
     } catch (error) {
       console.error("Error fetching players:", error);
@@ -104,7 +104,7 @@ const MatchesPage = () => {
     }
 
     try {
-      await axios.post("http://localhost:8080/api/matches", {
+      await axios.post("http://ec2-13-232-204-19.ap-south-1.compute.amazonaws.com:8080/api/matches", {
         title: newMatch.title,
         matchDate: newMatch.matchDate,
         venue: newMatch.venue,
